@@ -12,6 +12,7 @@ def fetch_data(api_url):
         print(f"Error fetching data: {e}")
         return None
 
+
 def save_to_csv(data, csv_file):
     fieldnames = list(data.keys()) if data else []
     print(fieldnames)
@@ -20,6 +21,7 @@ def save_to_csv(data, csv_file):
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
         writer.writeheader()
         writer.writerow(data)
+
 
 def return_current_directry():
     result = subprocess.run(['pwd'], stdout=subprocess.PIPE, text=True)
@@ -30,6 +32,7 @@ def return_current_directry():
         print(f"Error: {result.stderr}")
     return current_directory
 
+
 def create_csv_file(folder_path):
     try:
         new_csv_file = os.path.join(folder_path, 'output_data.csv')
@@ -37,14 +40,12 @@ def create_csv_file(folder_path):
         print(f"Error creating a csv file:{e}")
 
 
-
 if __name__ == "__main__":
     # Replace 'https://api.example.com/endpoint' with the actual API endpoint URL
     api_url = 'https://api.publicapis.org/entries'
 
     # Place csv file in a desired location
-    folder_path = return_current_directry
-    print(folder_path)
+    folder_path = return_current_directry()
     csv_file = os.path.join(folder_path, 'output_data.csv')
 
     # Fetch data from the API endpoint
