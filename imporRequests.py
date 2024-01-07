@@ -42,7 +42,7 @@ def create_csv_file(folder_path):
 
 if __name__ == "__main__":
     # Replace 'https://api.example.com/endpoint' with the actual API endpoint URL
-    api_url = 'https://api.publicapis.org/entries'
+    api_url = input("Enter your desired API to pull data into CSV: ")
 
     # Place csv file in a desired location
     folder_path = return_current_directry()
