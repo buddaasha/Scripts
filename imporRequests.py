@@ -13,14 +13,14 @@ def fetch_data(api_url):
         return None
 
 
-def save_to_csv(data, csv_file):
-    fieldnames = list(data.keys()) if data else []
+def save_to_csv(response_data, csv_file):
+    fieldnames = list(response_data.keys()) if data else []
     print(fieldnames)
 
     with open(csv_file, 'w', newline='', encoding='utf-8') as csvfile:
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
         writer.writeheader()
-        writer.writerow(data)
+        writer.writerow(response_data)
 
 
 def return_current_directry():
