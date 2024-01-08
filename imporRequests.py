@@ -14,7 +14,7 @@ def fetch_data(api_url):
 
 
 def save_to_csv(response_data, csv_file):
-    fieldnames = list(response_data.keys()) if data else []
+    fieldnames = list(response_data.keys()) if response_data else []
     print(fieldnames)
 
     with open(csv_file, 'w', newline='', encoding='utf-8') as csvfile:
